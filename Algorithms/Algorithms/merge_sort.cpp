@@ -9,38 +9,31 @@ void merge(float* Array, int low, int mid, int high){
 	int len= high- low+ 1;
 	float* tempArray= (float*)malloc(sizeof(float)*len);   //later I will use malloc and release based on N 
 
-	i= low;
-	j= mid+ 1;
-	k= low-1; 
-	while((i<=mid)&&(j<=high)){
-		k++;
+	i= low-1;  k= low; 
+	//j= mid+1;
+	j= mid;
+	
+	while((i<mid)&&(j<high)){
 		if(Array[i]<Array[j]){
-			tempArray[k]= Array[i];
-			i++;
+			tempArray[k++]= Array[i++];
 		}
 		else{
-			tempArray[k]= Array[j];
-			j++;
+			tempArray[k++]= Array[j++];
 		}
 	    printf("Hey, I am in the first while loop!\n");	
 	}
-	//if(j==high){
-		while(i<=mid){
-			k++;
-			tempArray[k]= Array[i];
-			i++;
+	
+		while(i< mid){
+			tempArray[k++]= Array[i++];
 			  printf("Hey, I am in the 2nd while loop!\n");
 		}
-	//}
-	//if(i==mid){
-		while(j<=high){
-			k++;
-			tempArray[k]= Array[j];
-			j++;
+	
+		while(j<high){
+			tempArray[k++]= Array[j++];
 			printf("Hey, I am in the 3rd while loop!\n");printf("%d %d\n", k, j);
 		}
-	//}
-	for (int n=0; n< len; n++){
+	
+	for (int n= low; n< high; n++){  //bug2: it should start from n= low, not n= 0
 		Array[n]= tempArray[n];
 		printf("Array[%d]= %f\n", n, Array[n]);
 	}
@@ -54,11 +47,9 @@ void merge(float* Array, int low, int mid, int high){
 void merge_sort(float* Array, int low, int high){
 	int mid;
 	int n= high- low +1;
-	//mid= floor(float(low+high)/2);
     printf("Again\n");
-	//if(n<= 2) return;
-    //if(n== 3) merge(Array, low, mid, high);
-	if(low< high){
+
+	if(low+1< high){   //bug1: not low<high
 		mid= (low+high)/2;
 		printf("low= %d\n mid= %d\n high= %d\n", low, mid, high);
         merge_sort(Array, low, mid);
