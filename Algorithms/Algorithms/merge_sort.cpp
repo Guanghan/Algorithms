@@ -9,7 +9,7 @@ void merge(float* Array, int low, int mid, int high){
 	int len= high- low+ 1;
 	float* tempArray= (float*)malloc(sizeof(float)*len);   //later I will use malloc and release based on N 
 
-	i= low-1;  k= low; 
+	i= low;  k= low; 
 	//j= mid+1;
 	j= mid;
 	
