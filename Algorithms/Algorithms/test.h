@@ -2,7 +2,7 @@
 #define ALGORITHMS_TEST_H
 
 #include "insertion_sort.h"
-//#include "merge_sort.h"
-//#include "binary_search.h"
+#include "merge_sort.h"
+#include "quick_sort.h"
 
 #endif
