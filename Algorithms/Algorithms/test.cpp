@@ -2,9 +2,9 @@
 #include <iostream>
 #include "test.h"
 
-#define MERGE_SORT
+//#define MERGE_SORT
 //#define INSERTION_SORT
-//#define  QUICK_SORT
+#define  QUICK_SORT
 
 int main( int argc, char** argv ){
 	float Array[]= {23, 42, 54, 11, 32, 44, 76, 18, 23, 52, 31, 22, 10, 7, 21, 33, 23};
@@ -37,7 +37,7 @@ int main( int argc, char** argv ){
 	float* A= &Array[0];
 	int N= sizeof(Array)/sizeof(float);
 
-	quick_sort(Array, 1, N);
+	quick_sort(Array, 1, 17);
 	for (int i= 0; i< sizeof(Array)/sizeof(float); i++){
        printf("Array[%d]= %f\n", i, Array[i]); 
 	}
