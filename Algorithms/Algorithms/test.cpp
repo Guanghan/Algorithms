@@ -5,14 +5,18 @@
 //#define MERGE_SORT
 //#define INSERTION_SORT
 #define  QUICK_SORT
+#define  LINKED_LIST
 
-int main( int argc, char** argv ){
-	float Array[]= {23, 42, 54, 11, 32, 44, 76, 18, 23, 52, 31, 22, 10, 7, 21, 33, 23};
-	float *Sorted= (float*)malloc(sizeof(Array));
-	float key= Array[1];
+int main( int argc, char** argv )
+{
+	/* 1. Test algorithms */
 
-	for (int i= 0; i< sizeof(Array)/sizeof(float); i++){
-             printf("Array[%d]= %f\n", i, Array[i]);
+	float Array[] = { 23, 42, 54, 11, 32, 44, 76, 18, 23, 52, 31, 22, 10, 7, 21, 33, 23 };
+	float *Sorted = (float*)malloc(sizeof(Array));
+	float key = Array[1];
+
+	for (int i = 0; i< sizeof(Array) / sizeof(float); i++){
+		printf("Array[%d]= %f\n", i, Array[i]);
 	} printf("\n");
 
 #ifdef INSERTION_SORT
@@ -43,6 +47,24 @@ int main( int argc, char** argv ){
 	}
 #endif
 	system("pause");
+	printf("\n");
+
+	/*-------------------------------------------------------------------------*/
+
+	/* 2. Test data structures */
+
+#ifdef LINKED_LIST
+	node* head = NULL;
+	appendEnd(&head, 5);
+	appendEnd(&head, 8);
+	pushFront(&head, 4);
+	insertAfter(head->next_node, 6);
+	printLinkedList(head);
+#endif // LINKED_LIST
+
+
+	return 1;
+
 }
 
 
