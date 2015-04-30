@@ -25,7 +25,7 @@ void insertAfter(node* prev_node, int new_data)
 	/* 0. Check if given prev_node is NULL */
 	if (prev_node == NULL)
 	{
-		printf("function [insertAfter] error: 1st parameter prev_node can't be NULL\n");
+		printf(" error: in function [insertAfter], 1st parameter prev_node can't be NULL\n");
 		return;
 	}
 
@@ -69,7 +69,7 @@ void appendEnd(node ** head_ref, int new_data)
 		last_node = last_node->next_node;
 	}
 
-	/* 6. update the last node: add the new node after it */
+	/* 6. Update the last node: add the new node after it */
 	last_node->next_node = new_node;
 
 }
@@ -84,6 +84,40 @@ void printLinkedList(node* mynode)
 	}
 	printf("\n");
 }
+
+/* Delete the earliest node that holds the give data */
+void deleteNode(node** head_ref, int key)
+{
+	/* 1. Check if the head node contains the key */
+	node* temp_node = *head_ref;
+	if (temp_node != NULL && temp_node->data == key)
+	{
+		*head_ref = temp_node->next_node;
+		free(temp_node);
+		return;
+	}
+
+	/* 2. Find the node that contains the key */
+	node* prev_node;
+	while (temp_node->next_node != NULL && temp_node->data != key)
+	{
+		prev_node = temp_node;
+		temp_node = temp_node->next_node;
+	}
+
+	/* 3. Check if that key exists at all in this list */
+	if (temp_node->data != key)
+	{
+		printf("Warning: in function [deleteNode], there is nothing to delete\n");
+		return;
+	}
+
+	/* 4. Delete the node found */
+	prev_node->next_node = temp_node->next_node;
+	free(temp_node);
+	
+}
+
 
 /*
 Tips:

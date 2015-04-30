@@ -15,3 +15,6 @@ void appendEnd(node ** head_ref, int new_data);
 
 /* print out the nodes of the list */
 void printLinkedList(node* mynode);
+
+/* Delete the earliest node that holds the give data */
+void deleteNode(node** head_ref, int key);

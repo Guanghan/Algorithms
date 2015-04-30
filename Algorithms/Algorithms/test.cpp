@@ -60,6 +60,10 @@ int main( int argc, char** argv )
 	pushFront(&head, 4);
 	insertAfter(head->next_node, 6);
 	printLinkedList(head);
+
+	deleteNode(&head, 4);
+	deleteNode(&head, 6);
+	printLinkedList(head);
 #endif // LINKED_LIST
 
 
