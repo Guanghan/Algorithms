@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 #include "linked_list.h"
 
 /* push the new data to the very front */
@@ -118,6 +119,24 @@ void deleteNode(node** head_ref, int key)
 	
 }
 
+/* Get the Nth node in the linked list */
+node* getNthNode(node** head_ref, int N)
+{
+	/* 1. Loop within the linked list */
+	int ct = 0;
+	node* temp_node = *head_ref;
+	while (temp_node != NULL)
+	{
+		ct++;
+		if (ct == N) return temp_node;
+		
+		temp_node = temp_node->next_node;
+	}
+
+	/* 2. There are not enough nodes in the list, if nothing has been returned in procudure [1] */
+	assert(0);
+
+}
 
 /*
 Tips:

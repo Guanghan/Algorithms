@@ -18,3 +18,6 @@ void printLinkedList(node* mynode);
 
 /* Delete the earliest node that holds the give data */
 void deleteNode(node** head_ref, int key);
+
+/* Get the Nth node in the linked list */
+node* getNthNode(node** head_ref, int N);
