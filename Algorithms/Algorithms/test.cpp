@@ -62,12 +62,15 @@ int main( int argc, char** argv )
 	printLinkedList(head);
 
 	deleteNode(&head, 4);
-	deleteNode(&head, 6);
+	deleteNode(head->next_node);
 	printLinkedList(head);
 
 	int Nth = 1;
 	node* NthNode = getNthNode(&head, Nth);
 	printf("%dth node: %d\n", Nth, NthNode->data);
+
+	deleteList(&head);
+	printLinkedList(head);
 #endif // LINKED_LIST
 
 

@@ -19,5 +19,11 @@ void printLinkedList(node* mynode);
 /* Delete the earliest node that holds the give data */
 void deleteNode(node** head_ref, int key);
 
+/* Delete the node with given pointr */
+void deleteNode(node* node_ptr);
+
+/* Delete the whole linked list */
+void deleteList(node** head_ref);
+
 /* Get the Nth node in the linked list */
 node* getNthNode(node** head_ref, int N);

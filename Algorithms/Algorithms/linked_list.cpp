@@ -78,10 +78,11 @@ void appendEnd(node ** head_ref, int new_data)
 /* print out the nodes of the list */
 void printLinkedList(node* mynode)
 {
+	if (mynode == NULL) printf("Null Linked List");
 	while (mynode != NULL)
 	{
 		printf("%d ", mynode->data);
-		mynode= mynode->next_node;
+		mynode= mynode->next_node; 
 	}
 	printf("\n");
 }
@@ -109,7 +110,7 @@ void deleteNode(node** head_ref, int key)
 	/* 3. Check if that key exists at all in this list */
 	if (temp_node->data != key)
 	{
-		printf("Warning: in function [deleteNode], there is nothing to delete\n");
+		printf("Warning: in function [deleteNode(node** head_ref, int key)], there is nothing to delete\n");
 		return;
 	}
 
@@ -117,6 +118,26 @@ void deleteNode(node** head_ref, int key)
 	prev_node->next_node = temp_node->next_node;
 	free(temp_node);
 	
+}
+
+
+/* Delete the node with given pointr */
+void deleteNode(node* node_ptr)
+{
+	/* Note: This method doesn't work if given node is the last node, since we can't know the previous node */
+	/* 0. Check if this is the last node */
+	node* temp_node = node_ptr->next_node;
+	if (temp_node == NULL){
+		printf("error: in function [deleteNode(node* node_ptr)], Can't delete the last Node like this.\n");
+		return;
+	}
+
+	/* 1. Copy the data from the next node to the node to be deleted */
+	node_ptr->data = temp_node->data;
+	node_ptr->next_node = temp_node->next_node;
+
+	/* 2. Delete the next node. */
+	free(temp_node);
 }
 
 /* Get the Nth node in the linked list */
@@ -137,6 +158,24 @@ node* getNthNode(node** head_ref, int N)
 	assert(0);
 
 }
+
+
+/* Delete the whole linked list */
+void deleteList(node** head_ref)
+{
+	/* 1. Delete each of its nodes, starting from the head */
+	node *temp_node, *next_node = *head_ref;
+	while (next_node != NULL)
+	{
+		temp_node = next_node;
+		next_node = temp_node->next_node;
+		free(temp_node);
+	}
+
+	/* 2. Don't forget the head_ref */
+	*head_ref = NULL;
+}
+
 
 /*
 Tips:
