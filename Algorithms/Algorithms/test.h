@@ -5,5 +5,6 @@
 #include "merge_sort.h"
 #include "quick_sort.h"
 #include "linked_list.h"
+#include "stack.h"
 
 #endif
