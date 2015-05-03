@@ -6,5 +6,6 @@
 #include "quick_sort.h"
 #include "linked_list.h"
 #include "stack.h"
+#include "queue.h"
 
 #endif

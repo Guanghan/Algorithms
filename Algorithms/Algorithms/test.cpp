@@ -7,6 +7,7 @@
 #define  QUICK_SORT
 #define  LINKED_LIST
 #define  STACK
+#define  QUEUE
 
 int main( int argc, char** argv )
 {
@@ -108,6 +109,27 @@ int main( int argc, char** argv )
 	}
 	peek(mystack);
 	pop(mystack);
+
+	system("pause");
+	printf("\n");
+
+#endif
+
+#ifdef QUEUE
+	printf("TEST OF QUEUE\n");
+	capacity = 10;
+	queue::queue* myqueue = queue::createQueue(capacity);
+
+	printQueue(myqueue);
+	enqueue(myqueue, 0);
+	enqueue(myqueue, 1);
+	enqueue(myqueue, 2);
+	enqueue(myqueue, 3);
+	enqueue(myqueue, 4);
+	printQueue(myqueue);
+	dequeue(myqueue);
+	dequeue(myqueue);
+	printQueue(myqueue);
 
 	system("pause");
 	printf("\n");
