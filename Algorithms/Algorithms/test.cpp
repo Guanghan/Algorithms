@@ -139,17 +139,24 @@ int main( int argc, char** argv )
 
 #ifdef BINARY_TREE
 	printf("TEST OF BINARY TREE\n");
-	binary_tree::node* mynode = binary_tree::newNode(1);
-	mynode->left = binary_tree::newNode(2);
-	mynode->right = binary_tree::newNode(3);
-	mynode->left->left = binary_tree::newNode(4);
-	mynode->left->right = binary_tree::newNode(5);
+	binary_tree::node* mynode = binary_tree::newNode(50);
+	mynode->left = binary_tree::newNode(30);
+	mynode->right = binary_tree::newNode(70);
+	mynode->left->left = binary_tree::newNode(20);
+	mynode->left->right = binary_tree::newNode(40);
 	printNode(mynode);
 
 	/* Test Binary Search Tree element insertion */
 	printf("\n");
-	insert(mynode, 0);
-	insert(mynode, 7);
+	bstInsert(mynode, 60);
+	bstInsert(mynode, 80);
+	printNode(mynode);
+
+	/* Test Binary Search Tree element deletion */
+	printf("\n");
+	bstDelete(mynode, 20);
+	//bstDelete(mynode, 2);
+	//bstDelete(mynode, 3);
 	printNode(mynode);
 #endif
 

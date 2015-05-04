@@ -17,5 +17,11 @@ namespace binary_tree
 	void printNode(node* mynode);
 
 	/* Insert new element to a binary search tree */
-	node* insert(node* mynode, int key);
+	node* bstInsert(node* mynode, int key);
+
+	/* Utility method: find the minimum value node when it is not empty. No search is needed */
+	node* minValueNode(node* mynode);
+
+	/* Delete element from a binary search tree */
+	node* bstDelete(node* mynode, int key);
 }
