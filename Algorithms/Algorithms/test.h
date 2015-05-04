@@ -7,5 +7,6 @@
 #include "linked_list.h"
 #include "stack.h"
 #include "queue.h"
+#include "binary_tree.h"
 
 #endif

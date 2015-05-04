@@ -8,6 +8,7 @@
 #define  LINKED_LIST
 #define  STACK
 #define  QUEUE
+#define  BINARY_TREE
 
 int main( int argc, char** argv )
 {
@@ -134,6 +135,16 @@ int main( int argc, char** argv )
 	system("pause");
 	printf("\n");
 
+#endif
+
+#ifdef BINARY_TREE
+	printf("TEST OF BINARY TREE\n");
+	binary_tree::node* mynode = binary_tree::newNode(1);
+	mynode->left = binary_tree::newNode(2);
+	mynode->right = binary_tree::newNode(3);
+	mynode->left->left = binary_tree::newNode(4);
+	mynode->left->right = binary_tree::newNode(5);
+	printNode(mynode);
 #endif
 
 	return 1;
