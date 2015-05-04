@@ -15,4 +15,7 @@ namespace binary_tree
 
 	/* Print the node using inorder */
 	void printNode(node* mynode);
+
+	/* Insert new element to a binary search tree */
+	node* insert(node* mynode, int key);
 }

@@ -23,4 +23,21 @@ namespace binary_tree
 		printf(" %d, ", mynode->data);
 		printNode(mynode->right);
 	}
+
+
+	/* The following methods are for BST(Binary Search Tree) */
+	/* Insert new element to a binary search tree */
+	node* insert(node* mynode, int key)
+	{
+		/* If the tree is empty, return a new node */
+		if (mynode == NULL) return newNode(key);
+
+		/* Otherwise, do recurion down in the tree */
+		if (key < mynode->data)
+			mynode->left = insert(mynode->left, key);
+		else if (key> mynode->data)
+			mynode->right = insert(mynode->right, key);
+
+		return mynode;
+	}
 }

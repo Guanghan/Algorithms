@@ -145,6 +145,12 @@ int main( int argc, char** argv )
 	mynode->left->left = binary_tree::newNode(4);
 	mynode->left->right = binary_tree::newNode(5);
 	printNode(mynode);
+
+	/* Test Binary Search Tree element insertion */
+	printf("\n");
+	insert(mynode, 0);
+	insert(mynode, 7);
+	printNode(mynode);
 #endif
 
 	return 1;
