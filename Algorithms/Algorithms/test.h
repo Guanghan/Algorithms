@@ -8,5 +8,6 @@
 #include "stack.h"
 #include "queue.h"
 #include "binary_tree.h"
+#include "heap.h"
 
 #endif

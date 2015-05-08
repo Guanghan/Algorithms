@@ -29,6 +29,7 @@ public:
 	{
 		return (2 * i + 2);
 	}
+	int getMin() { return array[0]; }
 
 	/* Extract root, the node with minimum value */
 	int extractMin();

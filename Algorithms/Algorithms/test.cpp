@@ -9,6 +9,7 @@
 #define  STACK
 #define  QUEUE
 #define  BINARY_TREE
+#define  HEAP
 
 int main( int argc, char** argv )
 {
@@ -158,6 +159,27 @@ int main( int argc, char** argv )
 	//bstDelete(mynode, 2);
 	//bstDelete(mynode, 3);
 	printNode(mynode);
+
+	system("pause");
+	printf("\n");
+#endif
+
+#ifdef HEAP
+	std::cout << "TEST OF BINARY HEAP \n";
+	MinHeap myheap(5);
+	myheap.insertKey(4);
+	myheap.insertKey(0);
+	myheap.insertKey(1);
+	myheap.insertKey(6);
+	myheap.insertKey(3);
+	myheap.insertKey(5);  //This 6th element causes overflow
+	std::cout << "GetMin: " << myheap.getMin() << std::endl;
+	std::cout << "ExtractMin: " << myheap.extractMin() << std::endl;
+	std::cout << "GetMin: " << myheap.getMin() << std::endl;
+	myheap.decreaseKey(4, -1);
+	std::cout << "GetMin: " << myheap.getMin() << std::endl;
+	myheap.deleteKey(0);
+	std::cout << "GetMin: " << myheap.getMin() << std::endl;
 #endif
 
 	return 1;

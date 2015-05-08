@@ -60,6 +60,7 @@ void MinHeap::decreaseKey(int i, int new_val)
 		swap(&array[i], &array[parent(i)]);
 		i = parent(i);
 	}
+	MinHeapify(i);
 }
 
 /* Delete a key stored at index i */
@@ -90,4 +91,12 @@ void MinHeap::insertKey(int key)
 		i = parent(i);
 	}
 
+}
+
+/* Swap two */
+void MinHeap::swap(int *x, int *y)
+{
+	int temp = *x;
+	*x = *y;
+	*y = temp;
 }
