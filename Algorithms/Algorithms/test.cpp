@@ -5,6 +5,8 @@
 //#define MERGE_SORT
 //#define INSERTION_SORT
 #define  QUICK_SORT
+#define  KNAPSACK
+
 #define  LINKED_LIST
 #define  STACK
 #define  QUEUE
@@ -65,6 +67,17 @@ int main( int argc, char** argv )
 
 	system("pause");
 	printf("\n");
+#endif
+
+#ifdef KNAPSACK
+	printf("TEST OF KNAPSACK\n");
+
+	Knapsack myProblem(15);
+	myProblem.dispSolution();
+
+	//int value= myProblem(15);
+	//std::cout << "Maximum value we carry is: " << value << std::endl;
+
 #endif
 	
 	printf("-------------------------------------------------------------------\n");

@@ -8,6 +8,7 @@
 #include "stack.h"
 #include "queue.h"
 #include "binary_tree.h"
-#include "heap.h"
+#include "min_heap.h"
+#include "Knapsack.h"
 
 #endif
