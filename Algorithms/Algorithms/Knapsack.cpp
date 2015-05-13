@@ -19,7 +19,10 @@ void Knapsack::dispSolution()
 	else
 	{
 		std::cout << "Please Solve the Problem first!\n";
-		getMaxIndex(itemNum, maxWeight);
+		for (int i = 1; i <= itemNum; i++)
+		{
+			getMaxIndex(i, maxWeight);
+		}
 	}
 }
 
@@ -36,6 +39,7 @@ Knapsack::Knapsack(int maxWeight)
 int Knapsack::operator()(int maxWeight)
 {
 	this->maxWeight = maxWeight;
+	std::cout << "item number is:" << itemNum << std::endl;
 
 	return getMaxValue(itemNum, maxWeight);
 }
@@ -46,25 +50,33 @@ int Knapsack::getMaxValue(int kth, int maxWeight)
 	//std::cout << "(kth, maxWeight) = (" << kth << ", " << maxWeight << ")" << std::endl;
 
 	if (kth == 0) return 0;
-	if (maxWeight <= 0) return 0;
+	if (maxWeight == 0) return 0;
 
 	if (kth == 1)
 	{
-		//std::cout << "kth = 1      " << floor((float)maxWeight / (float)weight[0])*value[0] << "\n";
-		return floor((float)maxWeight / (float)weight[0])*value[0];
+		//std::cout << "kth = 1      " << (float)maxWeight<<"  " << (float)weight[0] << " "<< value[0]<<" "<< floor((float)maxWeight / (float)weight[0])*value[0] << "\n";
+		return floor((float)maxWeight/(float)weight[0])*value[0];
+	}
+
+	if (maxWeight - weight[kth - 1] < 0)  //This was ignored and was the bug
+	{
+		return getMaxValue(kth - 1, maxWeight);
 	}
 	else
 	{
-		return std::max(getMaxValue(kth -1, maxWeight), getMaxValue(kth, maxWeight - weight[kth - 1]));
+		return std::max(getMaxValue(kth -1, maxWeight), getMaxValue(kth, maxWeight - weight[kth - 1]) + value[kth-1]);  //Another bug here: need to add " + value[kth-1]"
 	}
 }
 
 //The maximum index of the item used in the knapsack.
 int Knapsack::getMaxIndex(int kth, int maxWeight)
 {
-	//if (kth < 1) return 1;
-
-	if (getMaxValue(kth - 1, maxWeight) > getMaxValue(kth, maxWeight - weight[kth - 1]))
+	if (maxWeight - weight[kth - 1] < 0)  //This was ignored and was the bug
+	{
+		std::cout << kth << "th maxIndex: " << kth-1 << std::endl;
+		return getMaxIndex(kth-1, maxWeight);
+	}
+	else if (getMaxValue(kth - 1, maxWeight) > getMaxValue(kth, maxWeight - weight[kth - 1]) + value[kth -1] ) //Another bug here: need to add " + value[kth-1]"
 	{
 		int temp= getMaxIndex(kth - 1, maxWeight);
 		std::cout << kth << "th maxIndex: " << temp << std::endl;
@@ -77,4 +89,3 @@ int Knapsack::getMaxIndex(int kth, int maxWeight)
 		return kth;
 	}
 }
-

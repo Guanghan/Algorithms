@@ -75,8 +75,8 @@ int main( int argc, char** argv )
 	Knapsack myProblem(15);
 	myProblem.dispSolution();
 
-	//int value= myProblem(15);
-	//std::cout << "Maximum value we carry is: " << value << std::endl;
+	int value= myProblem(15);
+	std::cout << "Maximum value we carry is: " << value << std::endl;
 
 #endif
 	
