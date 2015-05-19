@@ -12,7 +12,6 @@
 #define  QUEUE
 #define  BINARY_TREE
 #define  HEAP
-#define  GRAPH
 
 int main( int argc, char** argv )
 {
@@ -194,22 +193,6 @@ int main( int argc, char** argv )
 	std::cout << "GetMin: " << myheap.getMin() << std::endl;
 	myheap.deleteKey(0);
 	std::cout << "GetMin: " << myheap.getMin() << std::endl;
-#endif
-
-#ifdef GRAPH
-	std::cout << "TEST OF GRAPH \n";
-	std::cout << "a test of graph in adjacency list \n";
-	int V = 5;
-	Graph::Graph* mygraph = Graph::createGraph(V);
-	Graph::newEdge(mygraph, 0, 1);
-	Graph::newEdge(mygraph, 0, 4);
-	Graph::newEdge(mygraph, 1, 2);
-	Graph::newEdge(mygraph, 1, 3);
-	Graph::newEdge(mygraph, 1, 4);
-	Graph::newEdge(mygraph, 2, 3);
-	Graph::newEdge(mygraph, 3, 4);
-	Graph::printGraph(mygraph);
-
 #endif
 
 	return 1;

@@ -10,6 +10,5 @@
 #include "binary_tree.h"
 #include "min_heap.h"
 #include "Knapsack.h"
-#include "graph_in_adjList.h"
 
 #endif
