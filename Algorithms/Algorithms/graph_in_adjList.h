@@ -2,13 +2,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <list>
-#include <iostream>
 
-class Graph
+namespace Graph
 {
 	/* The structure for the node in the Graph */
-	typedef struct AdjListNode
+	struct AdjListNode
 	{
 		int value;
 		AdjListNode* next;
@@ -20,10 +18,12 @@ class Graph
 		AdjListNode* head; //Pointer to the head of the list's node
 	};
 
-public:
 	/* The structure for the Graph itself */
-	int vertexNum; //The vertex # of the Graph
-	AdjList* list; //The adjacency list starting from this Vertex
+	struct Graph
+	{
+		int vertexNum; //The vertex # of the Graph
+		AdjList* list; //The adjacency list starting from this Vertex
+	};
 
 	/* Utility Function: Create a new adjacency list node*/
 	AdjListNode* newAdjListNode(int value);
@@ -36,7 +36,4 @@ public:
 
 	/* Utility Function: Print the adjacency list representation of Graph */
 	void printGraph(Graph* mygraph);
-
-	/* Breadth First Traversal(BFT) or called Search for the graph */
-	void BFS(int s);
-};
+}
