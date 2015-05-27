@@ -11,5 +11,6 @@
 #include "min_heap.h"
 #include "Knapsack.h"
 #include "graph_in_adjList.h"
+#include "MST.h"
 
 #endif

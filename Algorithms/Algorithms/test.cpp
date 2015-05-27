@@ -13,6 +13,7 @@
 #define  BINARY_TREE
 #define  HEAP
 #define  GRAPH
+#define  MIN_SPANNING_TREE
 
 int main( int argc, char** argv )
 {
@@ -194,13 +195,16 @@ int main( int argc, char** argv )
 	std::cout << "GetMin: " << myheap.getMin() << std::endl;
 	myheap.deleteKey(0);
 	std::cout << "GetMin: " << myheap.getMin() << std::endl;
+
+	system("pause");
+	printf("\n");
 #endif
 
 #ifdef GRAPH
 	std::cout << "TEST OF GRAPH \n";
 	std::cout << "a test of graph in adjacency list \n";
-	int V = 5;
-	Graph::Graph* mygraph = Graph::createGraph(V);
+	int Vnum = 5;
+	Graph::Graph* mygraph = Graph::createGraph(Vnum);
 	Graph::newEdge(mygraph, 0, 1);
 	Graph::newEdge(mygraph, 0, 4);
 	Graph::newEdge(mygraph, 1, 2);
@@ -210,6 +214,31 @@ int main( int argc, char** argv )
 	Graph::newEdge(mygraph, 3, 4);
 	Graph::printGraph(mygraph);
 
+	system("pause");
+	printf("\n");
+
+#endif
+
+#ifdef MIN_SPANNING_TREE
+	std::cout << "TEST OF Minimum Spanning Tree \n";
+	/* Create a graph 
+			  2    3
+		   (0)--(1)--(2)
+			|   / \   |
+		   6| 8/   \5 |7
+			| /     \ |
+		   (3)-------(4)
+				 9
+	                   */
+	int graph[V][V] = { { 0, 2, 0, 6, 0 },
+						{ 2, 0, 3, 8, 5 },
+						{ 0, 3, 0, 0, 7 },
+						{ 6, 8, 0, 0, 9 },
+						{ 0, 5, 7, 9, 0 }, };
+	MST::primMST(graph);
+
+	system("pause");
+	printf("\n");
 #endif
 
 	return 1;
